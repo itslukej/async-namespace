@@ -16,7 +16,9 @@ export default class Namespace {
   }
 
   get(key) {
-    return this.maps.get(AH.executionAsyncId())?.get(key);
+    const map = this.maps.get(AH.executionAsyncId());
+
+    if(map) return map.get(key);
   }
 
   set(key, value) {
@@ -54,11 +56,15 @@ export default class Namespace {
   }
 
   clear() {
-    return this.maps.get(AH.executionAsyncId())?.clear();
+    const map = this.maps.get(AH.executionAsyncId());
+
+    if (map) return map.clear();
   }
 
   delete(key) {
-    return this.maps.get(AH.executionAsyncId())?.delete(key);
+    const map = this.maps.get(AH.executionAsyncId());
+    
+    return map ? map.delete(key) : false;
   }
 
 

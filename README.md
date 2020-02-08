@@ -1,6 +1,5 @@
 # async-namespace
 
-⚠️ **This module requires optional chaining (--harmony flag on node 13.x)** ⚠️
 ```js
 import Namespace from 'async-namespace';
 
@@ -30,7 +29,7 @@ const ctx = new Namespace;
 
 // safe methods
 ctx.get(key); // Map.prototype.get
-ctx.set(key, value); // Map.prototype.set
+ctx.set(key, value); // Map.prototype.set (returns value)
 
 ctx.keys(); // Map.prototype.keys
 ctx.clear(); // Map.prototype.clear

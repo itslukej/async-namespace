@@ -5,7 +5,8 @@ const context = new NP;
 
 createServer((req, res) => {
   if (req.url === '/1') {
-    context.set('user', 1);
+    console.log(1, context.map);
+    console.log(1, context.set('user', 1));
     console.log(1, context.get('user'));
     console.log(1, context.keys());
     console.log(1, context.map);

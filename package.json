@@ -1,17 +1,14 @@
 {
   "version": "1.0.3",
   "name": "async-namespace",
-
   "license": "MIT",
   "author": "devcat",
   "description": "async namespace made with async_hooks",
-
   "keywords": [
     "async",
     "namespace",
     "async_hooks"
   ],
-
   "main": "./namespace.js",
   "exports": {
     ".": [
@@ -23,8 +20,17 @@
     ],
     "./esm": "./namespace.mjs"
   },
-
+  "types": "./namespace.d.ts",
   "homepage": "https://github.com/devcat/async-namespace#readme",
-  "bugs": { "url": "https://github.com/devcat/async-namespace/issues" },
-  "repository": { "type": "git", "url": "git+https://github.com/devcat/async-namespace.git" }
+  "bugs": {
+    "url": "https://github.com/devcat/async-namespace/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devcat/async-namespace.git"
+  },
+  "devDependencies": {
+    "@types/node": "^13.7.0",
+    "typescript": "^3.7.5"
+  }
 }

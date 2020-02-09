@@ -1,7 +1,7 @@
 import NP from './namespace.mjs';
 import { createServer } from 'http';
 
-const context = new NP;
+const context = NP.for('test');
 
 createServer((req, res) => {
   if (req.url === '/1') {

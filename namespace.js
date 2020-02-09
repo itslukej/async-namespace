@@ -1,7 +1,10 @@
 const AH = require('async_hooks');
 
+const namespaces = new Map;
+
 module.exports = class Namespace {
-  constructor() {
+  constructor(name = 'default') {
+    this.name = name;
     this.maps = new Map;
     this.hook = AH.createHook({
       init: this._init.bind(this),
@@ -9,6 +12,7 @@ module.exports = class Namespace {
     });
 
     this.hook.enable();
+    namespaces.set(name, this);
   }
 
   get map() {
@@ -71,6 +75,7 @@ module.exports = class Namespace {
   destroy() {
     this.maps.clear();
     this.hook.disable();
+    namespaces.delete(this.name);
   }
 
   _init(id, type, trigger) {
@@ -80,5 +85,14 @@ module.exports = class Namespace {
   _destroy(id) {
     this.maps.delete(id);
     if (this.maps.size === 0) this.hook.disable();
+  }
+
+  static for(name) {
+    if (namespaces.has(name)) return namespaces.get(name);
+    else {
+      const namespace = new Namespace(name);
+      namespaces.set(name, namespace);
+      return namespace;
+    }
   }
 }

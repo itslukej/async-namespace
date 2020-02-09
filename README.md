@@ -3,7 +3,9 @@
 ```js
 import Namespace from 'async-namespace';
 
-const ctx = new Namespace;
+const ctx = new Namespace('name');
+// or
+const ctx = Namespace.for('name');
 ```
 
 simple example:
@@ -25,7 +27,7 @@ server.get('/cpu/work', event => {
 ```
 
 ```js
-const ctx = new Namespace;
+const ctx = new Namespace(':)');
 
 // safe methods
 ctx.get(key); // Map.prototype.get

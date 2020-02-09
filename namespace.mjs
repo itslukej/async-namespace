@@ -4,6 +4,8 @@ const namespaces = new Map;
 
 export default class Namespace {
   constructor(name = 'default') {
+    if (namespaces.has(name)) return namespaces.get(name);
+
     this.name = name;
     this.maps = new Map;
     this.hook = AH.createHook({
